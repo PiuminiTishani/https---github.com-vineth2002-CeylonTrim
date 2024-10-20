@@ -1,0 +1,174 @@
+/* General Styles */
+.services-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-image: url('G:\Ballerina\services-page\public\images\bgimage.jpg'); /* Add your background image here */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 2rem 0;
+    min-height: 100vh; /* Ensure it covers the full height of the viewport */
+}
+
+/* Header Section */
+.services-header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #f7f3f6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height:50vh;
+    margin-left:4.5vw;
+    margin-right:4.5vw;
+    border-radius: 10px;
+}
+
+.services-header h1 {
+    font-size: 60px;
+    font-family:'Arial Narrow Bold';
+    color: #154170;
+    letter-spacing: 5px;
+    margin-bottom: 1rem;
+}
+
+.services-header p {
+    font-size: 21px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #555454;
+    margin-top: 80px;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem; /* Space between the tiles */
+    padding: 2rem; /* Space around the grid */
+    margin: 0 20px; /* Add horizontal margin to the grid */
+}
+
+/* Service Item (Flexbox Container for content and image) */
+.service-item {
+    display: flex;
+    background-color: #c88cce;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 70vh; /* Set a specific height for the service tiles */
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px; /* Add margin to each tile */
+}
+
+
+/* Content Container */
+.service-content {
+    flex-basis: 50%; /* Content takes 50% width */
+    padding-right: 1rem;
+}
+
+.service-item h3 {
+    font-size: 35px;
+    font-family:'Cochin';
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.service-item p {
+    font-size: 1.1rem;
+    color: #000000;
+}
+
+/* Right-align content for even-numbered tiles */
+.service-item:nth-child(even) .service-content {
+    text-align: right; /* Right-align text for even tiles */
+    padding-right: 1rem;
+    padding-left: 0; /* Remove left padding for even items */
+}
+
+/* Book Now Button */
+.book-now-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem; /* Adjust padding */
+    background-color: #430029; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 50px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Font size */
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, font-size 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+.book-now-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.1); /* Zoom the button */
+    font-size: 1.2rem; /* Increase the font size on hover */
+}
+
+/* Service Image */
+.service-image {
+    flex-basis: 50%; /* Image container takes 50% width */
+    text-align: center;
+    padding: 10px; /* Add padding for space between the image and the tile edge */
+}
+
+.service-image img {
+    width: 100%; /* Full width for the image container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Rounded corners for the image */
+    opacity: 0.9; /* Make the image slightly transparent */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and hover effects */
+}
+
+/* Hover effect for image */
+.service-item:hover .service-image img {
+    opacity: 1; /* Restore full opacity on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Alternating layout - even items (content on the right, image on the left) */
+.service-item:nth-child(even) {
+    flex-direction: row-reverse; /* Reverse the content and image for even items */
+}
+
+/* Hover effects for the service item */
+.service-item:hover {
+    transform: translateY(-10px);
+    background-color: #500657; /* Change background color on hover */
+}
+
+.service-item:hover h3,
+.service-item:hover p {
+    color: #98c1ee; /* Change text color on hover */
+    font-size: 40px; /* Increase text size on hover */
+    transition-duration: 600ms;
+}
+
+/* Responsive Design - Stack content on smaller screens */
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column; /* Stack content and image vertically */
+        text-align: center; /* Center-align text */
+    }
+
+    .service-content {
+        padding-right: 0; /* Remove right padding for mobile */
+    }
+
+    /* Cancel row-reverse for even items on small screens */
+    .service-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .service-image {
+        flex-basis: auto; /* Image takes full width on smaller screens */
+        padding: 0; /* Remove padding on smaller screens */
+    }
+
+    .service-image img {
+        width: 100%; /* Ensure image is responsive */
+    }
+}
